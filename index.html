@@ -9,36 +9,429 @@
  
 <body>
 
-  <div>
-    <h3>
-        my first website
-    </h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ducimus accusamus et eligendi, distinctio voluptatibus tempora sapiente nam recusandae inventore? Corporis tenetur omnis fugit neque ex iure sequi ad perspiciatis.</p>
-  </div>
   
-   <div>
-    <h3>
-        my second website
-    </h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ducimus accusamus et eligendi, distinctio voluptatibus tempora sapiente nam recusandae inventore? Corporis tenetur omnis fugit neque ex iure sequi ad perspiciatis.</p>
-  </div>
+<style>
+  * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-<div>
-    <h3>
-        my three website
-    </h3>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque ducimus accusamus et eligendi, distinctio voluptatibus tempora sapiente nam recusandae inventore? Corporis tenetur omnis fugit neque ex iure sequi ad perspiciatis.</p>
-  </div>
- <h3>You to push incremental code</h3>
+body {
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px;
  
-<ui>
- <li>git add .</li>
- <li> git commit -m"add a meaningful commit message"</li>
- <li>gt push</li>
+}
 
-</ui>
-<input type="text">
-<img src="robiul.jpg">
-<img src="pant.jpg">
+.search {
+  text-align: center;
+  margin-bottom: 20px;
+ 
+}
+
+.search h1 {
+  color: rgb(114, 49, 38);
+  margin-left:0;
+  position: fixed;
+  
+}
+.search a{
+  color:red;
+  text-decoration: none;
+  margin-left:15%;
+  position: fixed;
+}
+
+
+
+.search input {
+  width: 60%;
+  min-height: 40px;
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+
+.slideshow-container {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom:0;
+  
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+ max-width:100%;
+  height:300px;
+}
+
+/* Dots */
+.dot {
+  height: px;
+  width: 15px;
+  margin: 0 4px;
+  background-color: #bbb;
+  border-radius:50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Product styles */
+.product-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.product {
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  width: 200px;
+  padding: 10px;
+  text-align: center;
+  background-color: #f9f9f9;
+  transition: transform 0.3s;
+}
+
+.product:hover {
+  transform: scale(1.05);
+}
+
+.product img {
+  width:100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.product h3 {
+  margin: 10px 0 5px;
+}
+
+.product h4 {
+  color: green;
+}
+
+/* --- Responsive Media Queries --- */
+
+/* Tablet view (up to 768px) */
+@media (max-width: 768px) {
+  .search input {
+    width:100%;
+  }
+
+  .product {
+    width: 45%;
+  }
+}
+
+/* Mobile view (up to 480px) */
+@media (max-width: 480px) {
+  .search h1 {
+    font-size: 24px;
+  }
+
+  .search input {
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .product {
+    max-width:150px;
+  }
+
+  .product img {
+    min-height:100px;
+  }
+}
+.details{
+ max-width:1200px;
+  margin:auto;
+min-height:450px;
+ background:rgb(36, 32, 32);
+ overflow: hidden;
+}
+
+.details .box1{
+  max-width: 300px;
+  border:px solid red;
+  float:left;
+}
+.box1 h1{
+  color:white;
+  padding:10%;
+}
+.box1 h2{
+  color:green;
+}
+.box1 h6{
+  color:white;
+  font-size:15px;
+  padding-left:10%;
+}
+.box1 h2{
+  color:white;
+  padding-left:10%;
+}
+.box1 a{
+  color:white;
+  font-size:35px;
+  margin-left: 20px;
+}
+.details .box2{
+ float: left;
+  border:px solid green;
+  max-width:500px;
+}
+.box2 h2{
+  color:white;
+   font-size:18px;
+   padding:10%;
+}
+.details .box3{
+  border:px solid tomato;
+  max-width:200px;
+  float: left;
+}
+.box3 h3{
+  color:white;
+  padding:10%;
+
+}
+.box1 h1 {
+  color: white;
+  margin-bottom: 10px;
+}
+
+.box1 h6 {
+  color: white;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.box1 h2 {
+  color: white;
+  margin-top: 15px;
+  font-size: 18px;
+}
+
+.box1 a {
+  color: white;
+  font-size: 30px;
+  margin-right: 15px;
+}
+
+.box2 h2,
+.box3 h3 {
+  color: white;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+</style>
+</headl>
+<body>
+<div class="container-fluid">
+        <div class="container">
+            <div class="search">
+                <h1><a href=""></a> <a href=""></a> </h1>
+                
+                <input type="text" name="" id="find" placeholder="search here" onkeyup="search()">
+               
+            </div>                           
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="lacchi.jpg" style="width:1200px" height="400px">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="robiul.jpg" style="width:1200px" height="400px">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext"></div>
+  <img src="laptop.avif" style="width:1200px" height="400px">
+  <div class="text"></div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+
+
+ <div class="product-list">
+
+
+<div class="product">
+    <a href="slider.html">                                                                                 
+       <img src="https://live.hasthemes.com/html/2/sabujcha-preview/sabujcha/assets/img/product/product-1.jpg" width="200px" height="200px">
+    <h3>Bebe Bloom tea</h3>
+    <h4>$100.00-<del>$120.200</del></h4>
+    </a>
+</div>
+<div class="product">
+  <a href="#"><img src="lacchi.jpg" width="200px" height="200px"> <h3>lacchi</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+  <a href="#"><img src="bike.jpg" width="200px" height="200px"> <h3>bike</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+    
+<div class="product">
+  <a href="#"><img src="pant.jpg" width="200px" height="200px"> <h3>pant</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+  <a href="three.html"><img src="ti shart.jpg" width="200px" height="200px"> <h3>ti shart</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="home-foodpanda-apps.webp" width="200px" height="200px"> <h3>home</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="tree.jpg" width="200px" height="200px"> <h3>tree</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="cycle.avif" width="200px" height="200px"> <h3>cycle</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="watch.jpg" width="200px" height="200px"> <h3>watch</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+  <a href="#"><img src="ADD-lotto.jpg" width="200px" height="200px"> <h3>lotto</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+    
+<div class="product">
+  <a href="#"><img src="pant.jpg" width="200px" height="200px"> <h3>pant</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+  <a href="#"><img src="robiul.jpg" width="200px" height="200px"> <h3>Robiul</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="pathao.jpg" width="200px" height="200px"> <h3>pathao</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="nayeem.jpg" width="200px" height="200px"> <h3>nayeem</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="rashed.jpg" width="200px" height="200px"> <h3>house</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+<div class="product">
+  <a href="#"><img src="Remon.jpg" width="200px" height="200px"> <h3>remon</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+    <a href="vivo.htm">
+      <img src="vivo pohon.webp" width="200px" height="200px"><h3>vivo</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+  <a href="#"><img src="LACHCHI.jpg" width="200px" height="200px"><h3>Lacchi</h3><h4>$100.00-<del>$120.200</del></h4></a>
+</div>
+
+<div class="product">
+  <a href="#"><img src="car.jpeg" width="200px" height="200px"> <h3>car</h3><h4>&200 <del>&320</del> </h4></a>
+  
+</div>
+<div class="product">
+  <a href=""><img src="man.png" width="200px" height="200px"> <h3>man</h3> <h4> 1500 <del>50%</del></h4></a>
+</div>
+
+</div>
+<br><br><br>
+<div class="details">
+  <div class="box1">    
+    <p><h1>Robiul.com</h1><h6>Largest product search engine,<br> maximum categorized online shopping<br> mall and quickest home delivery system.</h6><h2>Follo<br>Us <a href=""><i class="fa-brands fa-square-facebook"></i></a><a href=""><i class="fa-brands fa-square-youtube"></i></a><a href=""><i class="fa-brands fa-square-instagram"></i></a> </h2></p>
+  </div>
+ <div class="box2">
+  <h2>Contact Us<br>
+
+House #8, Road # 14,
+Dhanmondi, Dhaka-1209.
+<br>
+Email: support@e-valy.com <br> <br> 01319992654 <br> 01916263820 </h2>
+ </div>
+ <div class="box3">
+  <h3>Let Us Help You
+
+    Your Account
+    Your Order
+    Terms & Conditions
+    Return & Refund Policy
+    FAQ</h3>
+ </div>
+</div>
+
+
+
+</div>
+<script>
+let slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  let i;
+  let slides = document.getElementsByClassName("mySlides");
+  let dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 2000); // Change image every 2 seconds
+}
+</script>
+
+
+<script type="text/javascript">
+  function search() {
+    let filter = document.getElementById('find').value.toUpperCase();
+    let item = document.querySelectorAll('.product');
+    let l = document.getElementsByTagName('h3');
+
+    for (let i = 0; i < l.length; i++) {
+      let a = item[i].getElementsByTagName('h3')[0];
+      let value = a.innerHTML || a.innerText || a.textContent;
+
+      if (value.toUpperCase().indexOf(filter) > -1) {
+        item[i].style.display = "";
+      } else {
+        item[i].style.display = "none";
+      }
+    }
+  }
+</script>
+
 </body>
 </html>
