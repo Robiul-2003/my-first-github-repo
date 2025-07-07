@@ -455,6 +455,7 @@ function showSlides() {
 
 
 
+
 <script>
   let uploadedImage = "";
 
@@ -463,48 +464,69 @@ function showSlides() {
     if (file) {
       const reader = new FileReader();
       reader.onload = function(e) {
-        uploadedImage = e.target.result; // base64 image
-        const preview = document.getElementById("preview");
-        preview.src = uploadedImage;
-        preview.style.display = "block";
+        uploadedImage = e.target.result;
+        document.getElementById("preview").src = uploadedImage;
+        document.getElementById("preview").style.display = "block";
       };
       reader.readAsDataURL(file);
     }
   }
 
   function addProduct() {
-    let name = document.getElementById("productName").value;
-    let price = document.getElementById("productPrice").value;
+    const name = document.getElementById("productName").value;
+    const price = document.getElementById("productPrice").value;
 
     if (!name || !uploadedImage || !price) {
-      alert("Please fill all fields and upload an image!");
+      alert("Please fill all fields!");
       return;
     }
 
-    let productList = document.querySelector(".product-list");
+    const newProduct = {
+      name,
+      price,
+      image: uploadedImage
+    };
 
-    let newProduct = document.createElement("div");
-    newProduct.className = "product";
+    // Save to localStorage
+    let products = JSON.parse(localStorage.getItem("products")) || [];
+    products.push(newProduct);
+    localStorage.setItem("products", JSON.stringify(products));
 
-    newProduct.innerHTML = `
-      <a href="#">
-        <img src="${uploadedImage}" width="200px" height="200px">
-        <h3>${name}</h3>
-        <h4>${price} <del>$120.00</del></h4>
-      </a>
-    `;
+    showProduct(newProduct);
 
-    productList.appendChild(newProduct);
-
-    // Reset fields
+    // Clear form
     document.getElementById("productName").value = "";
     document.getElementById("productPrice").value = "";
     document.getElementById("productImageFile").value = "";
     document.getElementById("preview").style.display = "none";
     uploadedImage = "";
   }
-</script>
 
+  function showProduct(product) {
+    const productList = document.querySelector(".product-list");
+
+    const newProductDiv = document.createElement("div");
+    newProductDiv.className = "product";
+
+    newProductDiv.innerHTML = `
+      <a href="#">
+        <img src="${product.image}" width="200px" height="200px">
+        <h3>${product.name}</h3>
+        <h4>${product.price} <del>$120.00</del></h4>
+      </a>
+    `;
+
+    productList.appendChild(newProductDiv);
+  }
+
+  function loadSavedProducts() {
+    const products = JSON.parse(localStorage.getItem("products")) || [];
+    products.forEach(showProduct);
+  }
+
+  // Load saved products when the page opens
+  window.onload = loadSavedProducts;
+</script>
 
 
 
