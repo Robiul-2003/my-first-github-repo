@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -366,6 +366,16 @@ min-height:450px;
 </div>
 
 </div>
+<div class="add-product" style="text-align: center;">
+  <h2>Add a New Product</h2>
+  <input type="text" id="productName" placeholder="Product Name" required><br><br>
+  <input type="file" id="productImageFile" accept="image/*" onchange="previewImage(event)"><br><br>
+  <img id="preview" style="max-width: 100px; display: none;" /><br><br>
+  <input type="text" id="productPrice" placeholder="Price" required><br><br>
+  <button onclick="addProduct()">Add Product</button>
+</div>
+
+
 <br><br><br>
 <div class="details">
   <div class="box1">    
@@ -434,6 +444,69 @@ function showSlides() {
     }
   }
 </script>
+
+
+
+
+
+
+
+
+
+
+
+<script>
+  let uploadedImage = "";
+
+  function previewImage(event) {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        uploadedImage = e.target.result; // base64 image
+        const preview = document.getElementById("preview");
+        preview.src = uploadedImage;
+        preview.style.display = "block";
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+  function addProduct() {
+    let name = document.getElementById("productName").value;
+    let price = document.getElementById("productPrice").value;
+
+    if (!name || !uploadedImage || !price) {
+      alert("Please fill all fields and upload an image!");
+      return;
+    }
+
+    let productList = document.querySelector(".product-list");
+
+    let newProduct = document.createElement("div");
+    newProduct.className = "product";
+
+    newProduct.innerHTML = `
+      <a href="#">
+        <img src="${uploadedImage}" width="200px" height="200px">
+        <h3>${name}</h3>
+        <h4>${price} <del>$120.00</del></h4>
+      </a>
+    `;
+
+    productList.appendChild(newProduct);
+
+    // Reset fields
+    document.getElementById("productName").value = "";
+    document.getElementById("productPrice").value = "";
+    document.getElementById("productImageFile").value = "";
+    document.getElementById("preview").style.display = "none";
+    uploadedImage = "";
+  }
+</script>
+
+
+
 
 </body>
 </html>
