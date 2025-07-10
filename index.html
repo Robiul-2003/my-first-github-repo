@@ -28,17 +28,23 @@ nav {
   justify-content: space-around;
    
  }
- .select1{
-    justify-content: center;
-    width:40px;
-    height:40px;
- }
+.profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+
  .menu-container {
   position: relative;
   display: inline-block;
 }
 
 .menu-button {
+  margin:;
   color: white;
   text-decoration: none;
   padding: 10px;
@@ -142,6 +148,24 @@ input{
 }
 
 
+.details {
+  max-width: 1200px;
+  min-height: 300px;
+  background: rgb(143, 18, 18);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+.details .box1,
+.details .box2,
+.details .box3 {
+  max-width: 300px;
+  float: none;
+}
+
 
 </style>
 
@@ -149,18 +173,12 @@ input{
   <headerr>
      <nav>
       <div class="one"> 
-        <select class="select1">            
-         <option>1</option>
-         <option>2</option>
-          <option>3</option>
-           <option>4</option>
-            <option>5</option>
-             <option>6</option>
-              <option>7</option>
-                <option>8</option>
-                  <option>9</option>
-                    <option>10</option>
-        </select>                  
+           <label for="uploadPhoto">
+  <img src="profile.jpg" id="profilePic" class="profile-img" alt="Upload your photo">
+</label>
+
+<input type="file" id="uploadPhoto" style="display:none" accept="image/*">
+
         <h2>Robiul.com</h2>
      <div class="menu-container">
     <a href="#" class="menu-button">Menu</a>
@@ -170,6 +188,10 @@ input{
       <li><a href="#">Bike</a></li>
       <li><a href="#">Cycle</a></li>
       <li><a href="#">Ti Shirt</a></li>
+      <li><a href="#">pant</a></li>
+      <li><a href="#">shart</a></li>
+      <li><a href="#">car</a></li>
+      <li><a href="#">dron</a></li>
     </ul>
   </div>
       
@@ -285,8 +307,30 @@ input{
 </div>
 <div class="product">
   <a href=""><img src="man.png" width="180px" height="200px"> <h3>man</h3> <h4> 1500 <del>50%</del></h4></a>
-</div>
+</div></div>
+<div class="details">
+  <div class="box1">    
+    <p><h1>Robiul.com</h1><h6>Largest product search engine,<br> maximum categorized online shopping<br> mall and quickest home delivery system.</h6><h2>Follo<br>Us <a href=""><i class="fa-brands fa-square-facebook"></i></a><a href=""><i class="fa-brands fa-square-youtube"></i></a><a href=""><i class="fa-brands fa-square-instagram"></i></a> </h2></p>
 
+</div>
+ <div class="box2">
+  <h2>Contact Us<br>
+
+House #8, Road # 14,
+Dhanmondi, Dhaka-1209.
+<br>
+Email: support@e-valy.com <br> <br> 01319992654 <br> 01916263820 </h2>
+ </div>
+ <div class="box3">
+  <h3>Let Us Help You
+
+    Your Account
+    Your Order
+    Terms & Conditions
+    Return & Refund Policy
+    FAQ</h3>
+ </div>
+</div>
 </div>
    </main>
 
@@ -345,6 +389,31 @@ function showSlides() {
   dots[slideIndex-1].classList.add("active");
   setTimeout(showSlides, 2000);
 }
+</script>
+<script>
+  const uploadInput = document.getElementById('uploadPhoto');
+  const profileImg = document.getElementById('profilePic');
+
+  uploadInput.addEventListener('change', function () {
+    const file = this.files[0];
+    if (file) {
+      const reader = new FileReader();
+
+      reader.onload = function () {
+        profileImg.src = reader.result;
+        localStorage.setItem("profileImage", reader.result);
+      }
+
+      reader.readAsDataURL(file);
+    }
+  });
+
+  window.addEventListener("load", function () {
+    const savedImage = localStorage.getItem("profileImage");
+    if (savedImage) {
+      profileImg.src = savedImage;
+    }
+  });
 </script>
 
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
